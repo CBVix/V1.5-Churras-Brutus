@@ -168,7 +168,7 @@ const DashboardOrders: React.FC<DashboardOrdersProps> = ({ orders = [], setOrder
           <div class="section"><span class="label">Itens:</span>${itemsHtml}</div>
           <div class="divider"></div>
           <div class="total">TOTAL: R$ ${order.total.toFixed(2)}</div>
-          <script>window.onload = function() { window.print(); setTimeout(() => { window.close(); }, 500); };</script>
+          <script>window.onload = function() { window.print(); };</script>
         </body>
       </html>
     `;
