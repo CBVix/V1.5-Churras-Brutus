@@ -245,7 +245,7 @@ const App: React.FC = () => {
     const totalValue = Math.max(0, subtotal + deliveryFee - discountValue);
 
     const orderData = {
-      tenant_slug: currentTenant.slug,
+      tenant_slug: 'churras-brutus',
       customer_name: userInfo.name,
       customer_whatsapp: userInfo.whatsapp,
       items: cart,
@@ -284,7 +284,7 @@ const App: React.FC = () => {
         .from('customers')
         .select('*')
         .eq('whatsapp', customerPhone)
-        .eq('tenant_slug', currentTenant.slug)
+        .eq('tenant_slug', 'churras-brutus')
         .maybeSingle();
 
       if (existingCustomer) {
@@ -297,7 +297,7 @@ const App: React.FC = () => {
         }).eq('id', existingCustomer.id);
       } else {
         await supabase.from('customers').insert([{
-          tenant_slug: currentTenant.slug,
+          tenant_slug: 'churras-brutus',
           name: userInfo.name,
           whatsapp: customerPhone,
           address: userInfo.address,
@@ -313,7 +313,7 @@ const App: React.FC = () => {
       setCart([]);
       alert("Pedido enviado com sucesso!");
       fetchInitialData();
-      setActivePage(Page.ALERTS);
+      setActivePage(Page.HOME);
     } catch (err: any) {
       console.error("Erro ao criar pedido:", err);
       alert("Erro ao realizar pedido. Verifique sua conexão.");
